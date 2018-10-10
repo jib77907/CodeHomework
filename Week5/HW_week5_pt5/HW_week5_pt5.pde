@@ -6,27 +6,34 @@
 
 // finally, try modifying the values you've stored every frame to make the shapes change their positions somehow.
 
-float[] xPositions = new float [100];
-float[] yPositions = new float [100];
+int numShapes = 500;
+float[] xPositions = new float [numShapes];
+float[] yPositions = new float [numShapes];
 
 void setup() {
   size (800, 800);
-  for (int i =0; i <50; i++) {
-    xPositions[i] = random(width);
-  }
+  noStroke();
 
   for (int i = 0; i < xPositions.length; i ++) {         
     xPositions[i] = random(width);
-    yPositions[i] = random(height);
+    yPositions[i] = map(i, 0, yPositions.length, height/2, height - 150);
   }
 }
 
 void draw() {
   background(150);
   for (int i =0; i < xPositions. length; i++) {
-    ellipse (xPositions[i], yPositions[i], 40, 40);
+    float siz = map(i, 0, xPositions.length, 300, 10);
+    fill (map(i, 0, xPositions.length, 10, 255));
+    ellipse (xPositions[i], yPositions[i], siz, siz);
 
-    xPositions[i] += random(-15, 10);
-    yPositions[i] += random(-5, 12);
+    xPositions[i] -= map(i, 0, xPositions.length, 1, 10);
+
+    if (xPositions[i]< -siz/2) {
+      xPositions[i] = width + siz/2;
+    }
+
+    //xPositions[i] += random(-15, 10);
+    //yPositions[i] += random(-5, 12);
   }
 }

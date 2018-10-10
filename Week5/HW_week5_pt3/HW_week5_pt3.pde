@@ -12,12 +12,18 @@ void setup() {
 
 void draw() {
   background(255);
-  
-  for (int i = 0; i <= 20; i++) {
-    
-    float xPos = map(i, 0, 20, 0, width);
-    float yPos = map(i, 0, 20,0,height);
 
-    rect(xPos, yPos, 20, 100);    
+  for (int i = 0; i <= 20; i++) {
+
+    float xPos = map(i, 0, 20, 10, width-10);
+    float yPos = map(i, 0, 20, 50, height - 50);
+//rotation
+    //pushMatrix();
+    //translate (xPos, yPos);
+    //rotate (radians(i/3 + framecount *0.5));
+    //rect (0,0,20,500);
+    rect(xPos, yPos, 20, 100);
+    
+    //popMatrix();
   }
 }

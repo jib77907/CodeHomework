@@ -18,7 +18,7 @@ void draw() {
 
 
   float xPos = map(mouseX, 0, width, width/2 - 50, width/2 + 50);
-  float newY = map(mouseY, -300 , 105 , width/2 - 50, width/2 + 50 );
+  float newY = map(mouseY, 0, height, 350, 450 );
   float yPos = newY;
   fill(100);
   ellipse(xPos, yPos, 50, 50);
