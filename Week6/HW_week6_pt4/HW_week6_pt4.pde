@@ -14,7 +14,7 @@ int gridW = 20;
 int gridH = 20;
 
 float[][] angles = new float[gridW][gridH];
-
+//float [][] 
 
 
 void setup() {
