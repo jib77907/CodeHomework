@@ -18,7 +18,7 @@ float [] s = new float [num];
 
 void setup() {
   size(800, 800);
-  for (int i = 0; i < x.length; i++) {
+  for (int i = 0; i < num; i++) {
     x[i] = width/2;
     y[i] = height/2;
     dx[i] = random(-10, 10);

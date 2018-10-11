@@ -8,8 +8,8 @@
 // experiment with changing the size of the 2d array and displaying different values
 //  in the draw loop, then move on to the next sketch.
 
-int gridW = 8;
-int gridH = 8;
+int gridW = 6;
+int gridH = 6;
 
 String[][] my2dArray = new String[gridW][gridH];
 
@@ -18,8 +18,8 @@ void setup() {
   textAlign(LEFT, TOP);
   noFill();
   stroke(255);
-  for (int i = 0; i < gridW; i++) {
-    for (int j = 0; j < gridH; j++) {
+  for (int i = 0; i < gridW; i++) {     //loop along width
+    for (int j = 0; j < gridH; j++) {         //loop along height
       my2dArray[i][j] = "i=" + i + ", j=" + j;
     }
   }
@@ -29,6 +29,7 @@ void draw() {
   background(0);
   for (int i = 0; i < gridW; i++) {
     for (int j = 0; j < gridH; j++) {
+      textSize(20);
       text(my2dArray[i][j], i * width/gridW, j * height/gridH);
     }
   }

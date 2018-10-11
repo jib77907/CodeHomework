@@ -17,20 +17,22 @@ int gridW = 10;
 int gridH = 10;
 
 boolean[][] isRed = new boolean[gridW][gridH];
-float [][] s = new float [gridW][gridH];
+float [][] widths = new float [gridW][gridH];
+float[][] heights = new float [gridW][gridH];
 
 void setup() {
   size(800, 800);
   noStroke();
   for (int i = 0; i < gridW; i++) {
     for (int j = 0; j < gridH; j++) {
-      
+      widths[i][j] = map(i, 0, gridW, 30, 150);  //map i from 0 to gridW and range of sizes form 30 to 150
+      heights[i][j] = map(j, 0, gridH, 30,150);
+
       if (i >= gridW/2 && j >= gridH/2) {
         isRed[i][j] = true;
       } else {
         isRed[i][j] = false;
       }
-      s[i][j] = map (s[i][j],i,gridW,0,5);
     }
   }
 }
@@ -39,20 +41,22 @@ void draw() {
   background(0);
   for (int i = 0; i < gridW; i++) {
     for (int j = 0; j < gridH; j++) {
-      
+
       if (isRed[i][j] == true) {
         fill(200, 0, 0);
       } else {
         fill(200, 200, 200);
       }
-      float w = width/gridW;
-      float h = height/gridH;
+      //float w = width/gridW;
+      float w = widths[i][j];
+      float h = heights[i][j];
+      //float h = height/gridH;
       float xPos = i * width/gridW + w/2;
       float yPos = j * height/gridH + h/2;
-      
-     
-      
-      ellipse(xPos, yPos, s[i][j], s[i][j] );
+
+
+
+      ellipse(xPos, yPos,w, h );
     }
   }
 }
