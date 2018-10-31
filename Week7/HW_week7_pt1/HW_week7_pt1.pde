@@ -82,13 +82,18 @@ class Fudge {
 
 
 //SEND HELP
-class Plate {
-  ArrayList<Cookie> moreCookies;
+class CookieJar {
+  ArrayList<Cookie> cookies = new ArrayList<Cookie>();
   
- Plate (){
-  moreCookies = new ArrayList<Cookie>();
+  CookieJar() {
+  for (int i = 0; i < 10; i++){
+  cookies.add (new Cookie("chocolatechip", "small"));
   }
+  }  
   
+  
+  }
+
   //void addCookies(int addCookie){
   // println ("Putting " + addCookie + )
   //}
