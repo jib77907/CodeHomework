@@ -11,32 +11,33 @@
 
 
 ArrayList<MyClass> myArrayList = new ArrayList<MyClass>();
-PImage mame;
+//PImage mame;
 
 void setup() {
   size(600, 600);
-  mame = loadImage("mameshiba.png");
+  imageMode(CENTER);
+  //mame = loadImage("mameshiba.png");
 }
 
 void draw() {
-  background(180,230, 150);
-  
-  if (frameCount % 30 == 0) {
-    myArrayList.add(new MyClass(random(width), random(height)));
+  background(180, 230, 150);
+
+  if (frameCount % 30 == 0) {             //modulo, every 30 frames, create a new object
+    myArrayList.add(new MyClass(random(width), random(height), "mameshiba.png"));
+     myArrayList.add(new MyClass(random(width), random(height), "mang.png"));
   }
-  
+
   for (int i = 0; i < myArrayList.size(); i++) {
     MyClass obj = myArrayList.get(i);
     obj.update();
     obj.display();
   }
-  
+
   for (int i = myArrayList.size() - 1; i >= 0; i--) {
     MyClass obj = myArrayList.get(i);
-   if (obj.isTimeUp() == true) {
-     myArrayList.remove(i);
-   }
-
+    if (obj.isTimeUp() == true) {
+      myArrayList.remove(i);
+    }
   }
 }
 
@@ -45,22 +46,24 @@ class MyClass {
   float x; 
   float y;
   float timeRemaining;
-  
-  MyClass(float x, float y) {
+  PImage mame;
+
+  MyClass(float x, float y, String pathName) {
     this.x = x;
     this.y = y;
     this.timeRemaining = 180;
+    this.mame = loadImage(pathName);
   }
-  
+
   void update() {
     timeRemaining--;
   }
-  
+
   void display() {
-    image(mame,x,y,timeRemaining, timeRemaining);
+    image(mame, x, y, timeRemaining, timeRemaining);
     //ellipse(x, y, timeRemaining, timeRemaining);
   }
-  
+
   boolean isTimeUp() {
     if (timeRemaining <= 0) {
       return true;

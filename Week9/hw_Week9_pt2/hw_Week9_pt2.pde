@@ -10,15 +10,16 @@
 // all the images by looping through the results of filling the
 // arrayOfPImages. 
 
-String[] arrayOfImageFilenames = new String[3];
-PImage[] arrayOfPImages = new PImage[3];
+String[] arrayOfImageFilenames = new String [3];
+PImage[] arrayOfPImages = new PImage[arrayOfImageFilenames.length];
 
 void setup() {
-  size(800,800);
-  
-   arrayOfImageFilenames[0] = "Baku0.png";
-   arrayOfImageFilenames[1] = "Baku1.png";
-   arrayOfImageFilenames[2] = "Baku2.png";
+  size(600,600);
+  imageMode(CENTER);
+   
+   for (int i = 0; i < arrayOfImageFilenames.length; i++){
+   arrayOfImageFilenames[i] = "Baku" + i + ".png";
+   }
    
   
   for (int i = 0; i < arrayOfImageFilenames.length; i++) {
@@ -28,10 +29,17 @@ void setup() {
 
 void draw() {
   background(250);
-  for (int i = 0; i < arrayOfImageFilenames.length; i++){
-    imageMode(CENTER);
-  image(arrayOfPImages[0],mouseX,mouseY); 
-  image(arrayOfPImages[1],mouseX - 150, mouseY - 150); 
-  image(arrayOfPImages[2],mouseX + 150, mouseY + 150); 
+  for (int i = 0; i < arrayOfPImages.length; i++){
+    float x = map(i,0, arrayOfPImages.length-1,100,width-100);
+    float prop = arrayOfPImages[i].width/arrayOfPImages[i].height;
+    
+    //image(arrayOfPImages[i], x, height/2, arrayOfPImages[i].width/2,arrayOfPImages[i].height/2);
+    
+    image(arrayOfPImages[i], x, height/2, 100,100* prop);
+    
+  //  imageMode(CENTER);
+  //image(arrayOfPImages[0],mouseX,mouseY); 
+  //image(arrayOfPImages[1],mouseX - 150, mouseY - 150); 
+  //image(arrayOfPImages[2],mouseX + 150, mouseY + 150); 
   }
 }
