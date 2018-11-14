@@ -28,11 +28,40 @@ void setup() {
 void draw() {
 
  
-  int x = int(random(width));
-  int y = int(random(height));
+  int x = int(random(width));   //or mouseX
+  int y = int(random(height));  //or mouseY
   color c = img.get(x, y);
   float size = map(hue(c), 255, 0, 5, 40);
   float alpha = map(brightness(c), 255, 0, 85, 250);
+  
+  //black and white image
+  //img.loadPixels();
+  // for (int i = 0; i < img.width; i++){
+   //for (int j = 0; j < img.height; j++){
+   // int pos = i + j * img.width;     // return color at every pixel
+   // if (brightness(img.pixels[pos])> 100){
+   //img.pixels[pos] = color (255);
+   //} else{
+     // img.pixels[pos] = color (0);
+     //}
+ //} 
+  //}
+  
+  //img.updatePixels();
+  //image(img,0,0);
+  
+  //or
+  
+  //float b = brightness(c);
+  //float v;
+  //if (b < 200){
+    //v = 255;
+    //} else {
+      //v = 0;
+      //}
+      // fill(v);
+  
+  
   fill(red(c), blue(c), 200, alpha);
   ellipse(x, y, size, size);
 

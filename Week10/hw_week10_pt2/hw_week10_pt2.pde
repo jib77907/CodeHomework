@@ -22,13 +22,31 @@ void setup() {
   c[3] = color(100, 0, 200);
   c[4] = color(0, 200, 150);
   c[5] = color(240, 210,0);
+  
+  //for (int i = 0; i < c.length; i++){
+  //c[i] = color(random(0,255), random (0,255), random(0,255));
+  //}
+  
 }
 
 void draw() {
   int i = int(random(0,c.length));
   
    if (frameCount % 20 == 0){
-  background(c[i]);
+  //background(c[i]);  
+  
+  //background(c[floor(random(0,10))]);
+  
+  background(c [inc]);
    
    }
+}
+
+int inc = 0;
+void mousePressed(){
+  if (inc < 5){
+inc++;
+  } else {
+  inc = 0;
+  }
 }
