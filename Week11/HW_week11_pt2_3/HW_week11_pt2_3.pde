@@ -13,6 +13,7 @@
 // finally, once you've completed that, add some custom visuals or behavior 
 // the Word class.
 
+//update this
 
 String letters = "";
 Word w;

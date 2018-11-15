@@ -28,8 +28,8 @@ void draw() {
   }
   if (newMouseShape) {
      
-  int w = int(random(50,180));
-  int h = int(random(50,180));
+  int w = int(random(60,180));
+  int h = int(random(60,180));
     rect(x, y, w, h);
     newMouseShape = false;
   }
