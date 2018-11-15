@@ -13,10 +13,10 @@ color[] colors = new color[numChars];
 
 void setup() {
   size(800, 800);
-  colorMode(HSB, numChars);
+  colorMode(HSB, numChars);  //(mode,max)
   
   for (int i = 0; i < numChars; i++){
-  colors[i] = color(i, numChars, numChars);
+  colors[i] = color(i, numChars, numChars); //only red is changing
   }
 }
 

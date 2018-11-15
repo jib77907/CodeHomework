@@ -16,7 +16,7 @@ Button button;
 
 void setup() {
   size(600, 600);
-  button = new Button(120, 95, 100, 30);
+  button = new Button(width/2, height/2, 100, 30);
 
   generators = new ArrayList<Generator>();
 }
@@ -24,14 +24,20 @@ void setup() {
 void draw() {
   background(100);
   button.display();
+  button.checkPressed();
+  if(button.getButtonStatus()){
+  background(255,0,0);
+  button.display();
+  }
 }
 
-void mousePressed() {
-  button.checkPressed();
-}
+
+//void mousePressed() {
+//  button.checkPressed();
+//}
 
 class Button {
-  boolean pressed;
+  boolean held;
   float x, y;
   float w, h;
 
@@ -43,13 +49,16 @@ class Button {
   }
 
   void checkPressed() {
-    if (mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h) {
-      pressed = !pressed;
+    if (mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h && mousePressed) {
+      //pressed = !pressed;
+      held = true;
+    } else {
+      held = false;
     }
   }
 
   void display() {
-    if (pressed) {
+    if (held) {
       for (int i = 0; i < generators.size(); i++) {
         Generator g = generators.get(i);
         g.addParticles();
@@ -64,7 +73,8 @@ class Button {
     rect(x, y, w, h);
   }
 
-  boolean getButtonStatus() {
-    return pressed;
+  boolean getButtonStatus() {  //boolean function method
+    //return pressed;   //not returning void
+    return held;
   }
 }

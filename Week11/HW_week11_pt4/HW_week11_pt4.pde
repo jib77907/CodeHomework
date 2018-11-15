@@ -39,11 +39,11 @@ color[] colors = new color[numChars];
 void setup() {
   size(640, 360);
   noStroke();
-  colorMode(HSB, numChars);
+  colorMode(HSB, numChars);  //colorMode(mode, max)
   background(numChars/2);
   // Set a hue value for each key
   for(int i = 0; i < numChars; i++) {
-    colors[i] = color(i, numChars, numChars);    
+    colors[i] = color(i, numChars, numChars);     //only changing the red
   }
 }
 
