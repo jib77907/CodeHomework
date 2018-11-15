@@ -13,59 +13,72 @@
 // finally, once you've completed that, add some custom visuals or behavior 
 // the Word class.
 
-//update this
+//String letters = "";
+//Word w;
 
-String letters = "";
-Word w;
+ArrayList<Word> wordsTyped;
 
-//ArrayList<Word> words;
-int i = 1;
-Word[] words = new Word[i];
+String [] letters = new String[10];
 
 void setup() {
   size(600, 600);
   textSize(16);
-  textAlign(CENTER);
+  // textAlign(CENTER);
 
-  w = new Word(50, 50, letters);
+  wordsTyped = new ArrayList<Word>();
+  wordsTyped.add(new Word(50, 50, " "));
 }
 
 void draw() {
   background(100);
-  for (int i = 0; i < words.length; i++){
-  text(letters, width/2, 50);
- // w.display();
+  for (int i = 0; i < wordsTyped.size(); i++) {
+    wordsTyped.get(i).display();
+    // w.display();
   }
 }
 
 void keyPressed() {
-  if ((key == ENTER) || (key == RETURN)) {
-    println(letters);
-    for (int i = 0; i < words.length; i++){
-    w.display();
-    letters = "";
-    }
-  } else if ((key > 31) && (key != CODED)) {
-    for (int i = 0; i < words.length; i++){
-    letters = letters + key;
-  }
-  }
+  enter ();
+
+  //if ((key == ENTER) || (key == RETURN)) {
+  //  println(letters);
+  //  for (int i = 0; i < words.length; i++){
+  //  w.display();
+  //  letters = "";
+  //  }
+  //} else if ((key > 31) && (key != CODED)) {
+  //  for (int i = 0; i < words.length; i++){
+  //  letters = letters + key;
+  //}
+  //}
 }
 
 class Word {
-  //String theWord;
+  String theWord;
   float x, y;
 
 
   Word(float x, float y, String text) {
-    letters = text;
+    theWord = text;
     this.x = x;
     this.y = y;
   }
 
   void display() {
-    for (int i= 0; i < words.length; i++) {
-      text(letters, x, y);
-    }
+    //for (int i= 0; i < words.length; i++) {
+    text(theWord, x, y);
+    //}
   }
+}
+
+void enter() {
+  if ((key == ENTER) || (key == RETURN)) {
+    // println(letters);
+    // w.display();
+    //letters = "";
+    wordsTyped.add(new Word(50, wordsTyped.size() * 50 + 50, " "));
+  } else if ((key > 31) && (key != CODED)) {
+  //letters = letters + key;
+  wordsTyped.get(wordsTyped.size()-1).theWord += key;
+}
 }
