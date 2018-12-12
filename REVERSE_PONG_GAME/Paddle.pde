@@ -21,35 +21,11 @@ class Paddle {
       pos.y +=7;
     }
 
-    if (score1 <= -45) {
-      p1.h += 3;
-      p2.h -= 1;
-    }
-
-    if (score2 <= -45) {
-      p2.h += 3;
-      p1.h -= 1;
-    }
-
-    if (score1 <= -85) {
-      p1.h += 4;
-      p2.h -= 2;
-    }
-
-    if (score2 <= -85) {
-      p2.h += 4;
-      p1.h -= 2;
-    }
-
-
-    if (score1 <= -125) {
-      p1.h += 5;
-      p2.h -= 3;
-    }
-
-    if (score2 <= -125) {
-      p2.h += 5;
-      p1.h -= 3;
+    if (frameCount % 15==0) {
+      if (score1 == score2) {
+        p1.h += 1;
+        p2.h += 1;
+      }
     }
   }
 
