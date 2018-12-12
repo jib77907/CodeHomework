@@ -61,12 +61,13 @@ void draw () {
   ball.checkCollision(p1);
   ball.checkCollision(p2);
   
+  if(frameCount % 5==0){
   fill(random(255), random(255),random(255));
   textSize(42);
   textAlign(CENTER, CENTER);
   text(score1, (random(30, 550)), random(30,700));
   text(score2,(random(650, 1150)), random(30,700));
-  
+  }
   drawCenterLine();
 }
 
